@@ -1,0 +1,10 @@
+node_modules
+.nuxt
+.output
+.cache
+*.log
+.DS_Store
+
+# Ignored intentionally: the repro should always pull the *current* nightly,
+# not a frozen snapshot from when this was first set up.
+pnpm-lock.yaml

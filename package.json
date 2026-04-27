@@ -1,0 +1,16 @@
+{
+  "name": "nuxt4-nightly-vue-repro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "_prep": "mkdir -p .nuxt node_modules/.cache/nuxt/.nuxt && touch .nuxt/nuxt.lock node_modules/.cache/nuxt/.nuxt/nuxt.lock",
+    "repro:4-nightly": "pnpm add nuxt@npm:nuxt-nightly@latest && pnpm install --force && pnpm _prep && pnpm build",
+    "repro:3-nightly": "pnpm add nuxt@npm:nuxt-nightly@3x && pnpm install --force && pnpm _prep && pnpm build",
+    "repro:5-nightly": "pnpm add nuxt@npm:nuxt-nightly@5x && pnpm install --force && pnpm _prep && pnpm build",
+    "reset": "rm -rf node_modules .nuxt .output pnpm-lock.yaml && node -e \"const f='package.json',j=JSON.parse(require('fs').readFileSync(f));j.dependencies={nuxt:'^4.1.2'};require('fs').writeFileSync(f,JSON.stringify(j,null,2)+'\\n')\" && pnpm install"
+  },
+  "dependencies": {
+    "nuxt": "^4.1.2"
+  }
+}
