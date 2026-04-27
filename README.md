@@ -59,6 +59,18 @@ Adding `vue` and `vue-router` as direct project dependencies
 project-level `node_modules`. But that just hides the underlying SSR
 externalization issue in the nightly.
 
+There's a script that demonstrates this:
+
+```bash
+pnpm reset && pnpm repro:4-nightly-workaround   # ✅ builds
+```
+
+vs. the failing version:
+
+```bash
+pnpm reset && pnpm repro:4-nightly              # ❌ fails
+```
+
 ## Note on the `_prep` script
 
 The `repro:*` scripts call a small `_prep` step that pre-creates
